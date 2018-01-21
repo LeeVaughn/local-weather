@@ -9,6 +9,7 @@
     <meta name="keywords" content="weather, forcast, local, fCC, freeCodeCamp, project, programming">
     <meta name="author" content="Lee Vaughn">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -23,16 +24,20 @@
 
         <div class="display">
             <div class="location">
-                <h2>Location</h2>
+                <h2 id="currentLocation">Getting location...</h2>
             </div>
             <div class="weather">
-                <h3>weather icon</h3>
-                <h3>temperature</h3>
+                <span id="currentIcon"></span>
+                <h3 id="currentWeather">...</h3>
+                <h2 id="currentTemp">...</h2>
             </div>
             <div class="forcast">
-                <h4>weather forcast</h4>
+                <h4 id="highTemp">High:</h4>
+                <h4 id="lowTemp">Low:</h4>
             </div>
-
+            <h6>
+                <a href="#" id="toggle">Toggle C/F</a>
+            </h6>
         </div>
 
     </div>
