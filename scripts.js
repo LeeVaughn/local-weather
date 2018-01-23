@@ -65,20 +65,13 @@ $(function () {
 	var long;
 	var lat;
 
-	// if (navigator.geolocation) {
-	// 	navigator.geolocation.getCurrentPosition(function (position) {
-	// 		long = position.coords.longitude;
-	// 		lat = position.coords.latitude;
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			long = position.coords.longitude;
+			lat = position.coords.latitude;
 
-	// 		$.getJSON("https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + lat + "&lon=" + long + "&appid=" + API_KEY, function (apiData) {
-	// 			weatherData = apiData;
-
-	$.getJSON("https://ipinfo.io", function (data) {
-		location = data.loc.split(",");
-	})
-
-	$.getJSON("https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + location[0] + "&lon=" + location[1] + "&appid=" + API_KEY, function (apiData) {
-		weatherData = apiData;
+			$.getJSON("https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + lat + "&lon=" + long + "&appid=" + API_KEY, function (apiData) {
+				weatherData = apiData;
 
 		render(weatherData, celsius);
 
