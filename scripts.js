@@ -73,7 +73,7 @@ $(function () {
 	// 		$.getJSON("https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + lat + "&lon=" + long + "&appid=" + API_KEY, function (apiData) {
 	// 			weatherData = apiData;
 
-	$.getJson("https://ipinfo.io", function (data) {
+	$.getJSON("https://ipinfo.io", function (data) {
 		location = data.loc.split(",");
 	})
 
