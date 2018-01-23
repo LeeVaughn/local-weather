@@ -73,11 +73,13 @@ $(function () {
 			$.getJSON("https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + lat + "&lon=" + long + "&appid=" + API_KEY, function (apiData) {
 				weatherData = apiData;
 
-		render(weatherData, celsius);
+				render(weatherData, celsius);
 
-		$("#toggle").click(function () {
-			celsius = !celsius;
-			render(weatherData, celsius);
+				$("#toggle").click(function () {
+					celsius = !celsius;
+					render(weatherData, celsius);
+				})
+			})
 		})
-	})
+	}
 })
