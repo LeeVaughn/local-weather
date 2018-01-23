@@ -16,6 +16,14 @@ body {
     text-shadow: 0em 0.2em 0.2em rgba(0, 0, 0, .9);
 }
 
+h1 {
+    margin: 0.7em auto;
+}
+
+h6 {
+    margin: 1em auto 2em auto;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +37,7 @@ body {
 .display {
     background: rgba(2, 30, 115, 0.75);
     text-align: center;
-    border: 0.2em #fff solid;
+    border: 0.2rem #fff solid;
     border-radius: 8px;
 }
 
@@ -37,17 +45,25 @@ body {
     font-weight: 700;
     margin-bottom: 2em;
     padding: 0 1.3em;
+    width: 90%;
 }
 
 .display {
     padding: 0 1.3em;
+    width: 60%;
 }
 
 #currentLocation {
+    margin: 1em auto 0.5em auto;
     font-weight: 400;
 }
 
+#currentWeather {
+    margin: 0.5em auto 1em auto;
+}
+
 #currentTemp {
+    margin: 0.7em auto;
     font-weight: 700;
     font-size: 3em;
 }
@@ -59,6 +75,12 @@ h6 {
     font-weight: 300;
 }
 
+#highTemp,
+#lowTemp {
+    margin: 0.8em auto;
+}
+
+/* Button Styles */
 input[type=checkbox] {
     height: 0;
     width: 0;
@@ -68,12 +90,13 @@ input[type=checkbox] {
 label {
     cursor: pointer;
     text-indent: -9999px;
-    width: 200px;
-    height: 100px;
+    width: 50px;
+    height: 25px;
     background: #b0b2b8;
     display: block;
     border-radius: 100px;
     position: relative;
+    margin: auto;
 }
 
 label:after {
@@ -81,8 +104,8 @@ label:after {
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 90px;
-    height: 90px;
+    width: 16px;
+    height: 16px;
     background: #fff;
     border-radius: 90px;
     transition: 0.3s;
@@ -98,5 +121,111 @@ input:checked+label:after {
 }
 
 label:active:after {
-    width: 130px;
+    width: 30px;
+}
+
+/* Media Queries */
+@media (min-width: 595px) {
+    .main-header {
+        margin-bottom: 1em;
+        width: 70%;
+        font-size: 1.4em;
+    }
+    .display {
+        width: 50%;
+    }
+    #currentLocation {
+        font-size: 2.2em;
+        margin: 0.5em auto 0 auto;
+    }
+    #currentWeather {
+        font-size: 1.6em;
+        margin: 0 auto;
+    }
+    #currentTemp {
+        margin: 0.5em auto;
+        font-size: 4em;
+    }
+    #highTemp,
+    #lowTemp {
+        font-size: 1.3em;
+    }
+    h1 {
+        margin: 0.5em auto;
+    }
+    h6 {
+        font-size: 0.85em;
+        margin-bottom: 1.3em;
+    }
+    img {
+        height: 100px;
+        width: 100px;
+    }
+    label {
+        width: 100px;
+        height: 50px;
+    }
+    label:after {
+        width: 40px;
+        height: 40px;
+    }
+    label:active:after {
+        width: 65px;
+    }
+}
+
+@media (min-width: 960px) {
+    .main-header {
+        margin-bottom: 1em;
+        width: 60%;
+        font-size: 1.8em;
+    }
+    .display {
+        width: 40%;
+    }
+    #currentLocation {
+        font-size: 2.6em;
+        margin: 0.5em auto 0 auto;
+    }
+    #currentWeather {
+        font-size: 1.9em;
+    }
+    #currentTemp {
+        margin: 0.4em auto;
+        font-size: 4.5em;
+    }
+    img {
+        height: 105px;
+        width: 105px;
+    }
+    h1 {
+        margin: 0.3em auto;
+    }
+}
+
+@media (min-width: 1290px) {
+    .main-header {
+        margin-bottom: 0.7em;
+        max-width: 637px;
+        /* 		width: 50%; */
+        font-size: 1.9em;
+    }
+    .display {
+        max-width: 445px;
+    }
+    #currentLocation {
+        font-size: 3em;
+        margin: 0.3em auto 0 auto;
+    }
+    #currentWeather {
+        font-size: 2.2em;
+    }
+    #currentTemp {
+        margin: 0.3em auto;
+        font-size: 4.9em;
+    }
+    #highTemp,
+    #lowTemp {
+        font-size: 1.5em;
+    }
 }
