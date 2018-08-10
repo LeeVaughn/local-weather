@@ -1,6 +1,6 @@
-var API_KEY = "25a6ca31843cdb2c119eb1f9147a9776";
-var celsius = false;
-var weatherData;
+const API_KEY = "25a6ca31843cdb2c119eb1f9147a9776";
+let celsius = false;
+let weatherData;
 
 function displayTemp(fTemp, c) {
 	if (c) return Math.round((fTemp - 32) * (5 / 9)) + " C";
@@ -8,20 +8,20 @@ function displayTemp(fTemp, c) {
 }
 
 function render(weatherData, celsius) {
-	var currentLocation = weatherData.name;
-	var currentIcon = weatherData.weather[0].icon;
-	var currentWeather = weatherData.weather[0].description;
-	var currentTemp = displayTemp(weatherData.main.temp, celsius);
-	var highTemp = displayTemp(weatherData.main.temp_max, celsius);
-	var lowTemp = displayTemp(weatherData.main.temp_min, celsius);
-	var iconSrc = "https://openweathermap.org/img/w/" + currentIcon + ".png";
+	const currentLocation = weatherData.name;
+	const currentIcon = weatherData.weather[0].icon;
+	const currentWeather = weatherData.weather[0].description;
+	const currentTemp = displayTemp(weatherData.main.temp, celsius);
+	const highTemp = displayTemp(weatherData.main.temp_max, celsius);
+	const lowTemp = displayTemp(weatherData.main.temp_min, celsius);
+	const iconSrc = `https://openweathermap.org/img/w/${currentIcon}.png`;
 
 	$("#currentLocation").html(currentLocation);
-	$("#currentIcon").html("<img src=" + iconSrc + ">");
+	$("#currentIcon").html(`<img src=${iconSrc}>`);
 	$("#currentWeather").html(currentWeather);
 	$("#currentTemp").html(currentTemp);
-	$("#highTemp").html("High: " + highTemp);
-	$("#lowTemp").html("Low: " + lowTemp);
+	$("#highTemp").html(`High: ${highTemp}`);
+	$("#lowTemp").html(`Low: ${lowTemp}`);
 
 	// Changes HTML background image and .main-header and .display background color based on current weather icon
 	if (currentIcon == "01d") {
@@ -61,16 +61,16 @@ function render(weatherData, celsius) {
 }
 
 $(function () {
-	var location;
-	var long;
-	var lat;
+	// let location;
+	let long;
+	let lat;
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
 			long = position.coords.longitude;
 			lat = position.coords.latitude;
 
-			$.getJSON("https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + lat + "&lon=" + long + "&appid=" + API_KEY, function (apiData) {
+			$.getJSON(`https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${long}&appid=${API_KEY}`, function (apiData) {
 				weatherData = apiData;
 
 				render(weatherData, celsius);
@@ -79,7 +79,7 @@ $(function () {
 					celsius = !celsius;
 					render(weatherData, celsius);
 				})
-			})
-		})
+			});
+		});
 	}
 })
